@@ -9,11 +9,17 @@ use Symfony\Bridge\Doctrine\RegistryInterface;
 /**
  * @method UserReview|null find($id, $lockMode = null, $lockVersion = null)
  * @method UserReview|null findOneBy(array $criteria, array $orderBy = null)
- * @method UserReview[]    findAll()
  * @method UserReview[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
 class UserReviewRepository extends ServiceEntityRepository
 {
+    // * @method UserReview[]    findAll()
+    public function findAll()
+    {
+        return $this->findBy(array(), array('id' => 'DESC'));
+    }
+
+
     public function __construct(RegistryInterface $registry)
     {
         parent::__construct($registry, UserReview::class);

@@ -3,6 +3,12 @@
 {% block title %}Hello LoginController!{% endblock %}
 
 {% block body %}
+<section class="wrapper">
+    <div class="inner">
+        <header class="special">
+            <h2>Sem turpis amet semper</h2>
+            <p>In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor.</p>
+        </header>
 <div class = "container">
     <div class="panel panel-success">
         <div class="panel-heading">
@@ -18,15 +24,23 @@
         {% endif %}
 
         <form action="{{ path('login') }}" method="post">
-            <div class="form-group">
-                    <label for="username">Username:</label>
-                    <input type="text" name="_username" id="username" class="form-control" value="{{ username }}" >
-            </div>
-                <div class="form-group">
-                    <label for="password">Password:</label>
-                    <input type="password" name="_password" id="password" class="form-control">
-            </div>
-            <button class="btn btn-info pull-right">Connect</button>
+            <div class="row gtr-uniform">
+                <div class="col-6 col-12-xsmall">
+                    <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" name="username" id="username" class="form-control" value="{{ username }}" >
+                    </div>
+                </div>
+                <div class="col-6 col-12-xsmall">
+                        <div class="form-group">
+                                    <label for="password">Password:</label>
+                                    <input type="password" name="password" id="password" class="form-control">
+                        </div>
+                </div>
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}"
+                    >
+                    <button class="btn btn-info pull-right">Connect</button>
 
         </form>
 
@@ -39,5 +53,8 @@
 
 
 </div>
+    </div>
+</section>
+
 
 {% endblock %}

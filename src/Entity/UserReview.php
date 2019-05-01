@@ -4,12 +4,16 @@ namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\DateTime;
+
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserReviewRepository")
  */
 class UserReview
 {
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -41,20 +45,26 @@ class UserReview
     private $user_review;
 
     /**
-     * @ORM\Column(type="time")
+     *
+     * @ORM\Column(type="datetime", columnDefinition="TIMESTAMP DEFAULT CURRENT_TIMESTAMP")
      */
     private $pub_date;
 
     /**
      * @ORM\Column(type="string", length=255)
-     *
      */
     private $user_ip;
     /**
      * @ORM\Column(type="string", length=255)
-     *
      */
     private $user_browser;
+
+//    public function __construct()
+//    {
+//        $this->pub_date= new DateTime();
+//
+//    }
+//
 
     public function getId(): ?int
     {
@@ -120,25 +130,27 @@ class UserReview
 
         return $this;
     }
-    public function getUser_ip(): ?string
+    public function getUserIp(): ?string
     {
         return $this->user_ip;
     }
 
-    public function setUser_ip(string $user_ip): self
+    public function setUserIp(string $user_ip): self
     {
         $this->user_ip = $user_ip;
 
         return $this;
-    }public function getUser_browser(): ?string
+    }
+    public function getUserBrowser(): ?string
     {
         return $this->user_browser;
     }
 
-    public function setUser_browser(string $user_browser): self
+    public function setUserBrowser(string $user_browser): self
     {
         $this->user_browser = $user_browser;
 
         return $this;
     }
+
 }

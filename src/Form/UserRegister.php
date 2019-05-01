@@ -15,11 +15,6 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 class UserRegister extends AbstractType
 {
 
-    /**
-     * @Route("/sing/in11", name="sss11")
-     *
-     */
-
 
     public function buildForm(FormBuilderInterface $builder, array $options)
     {

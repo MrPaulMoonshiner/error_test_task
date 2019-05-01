@@ -2,6 +2,7 @@
 
 
 namespace App\Controller;
+
 use App\Form\UserRegister;
 use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;

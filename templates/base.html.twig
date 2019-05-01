@@ -16,6 +16,7 @@
             <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
             <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         {% endblock %}
+
 </head>
 
 {% block header %}
@@ -31,15 +32,16 @@
 <nav id="menu">
     <ul class="links">
         <li><a href="{{ path('app_homepage')}}">Home</a></li>
-        <li><a href="{{ path('app_sup') }}">Sign up</a></li>
-        <li><a href="{{ path('app_sin') }}">Sign in</a></li>
-        <li><a href="{{ path('app_yop',{ slug: 'slug' }) }}">Your opinion</a></li>
-        <li><a href="generic.html">Comments</a></li>
-        <li><a href="generic.html">Contacts</a></li>
+       <li><a href="{{ path('app_yop') }}">Reviews</a></li>
+        <li><a href="{{ path('user_review') }}">Leave review</a></li>
+        <li><a href="{{ path('user_registration') }}">Sign up</a></li>
+        <li><a href="{{ path('app_login') }}">Sign in</a></li>
+        <li><a href="{{ path('app_logout') }}">Logout</a></li>
+
 
     </ul>
 </nav>
-
+    {#{{ t }}#}
     {% block body %}
 
         {% endblock %}

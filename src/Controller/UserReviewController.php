@@ -3,62 +3,55 @@
 namespace App\Controller;
 
 use App\Entity\UserReview;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Response;
+use App\Form\UserReviewForm;
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
 
-class UserReviewController extends AbstractController
+class UserReviewController extends Controller
 {
+
+
+
     /**
      * @Route("/user/review", name="user_review")
      */
 
-    public function index()
+    public function newReview(Request $request)
     {
-        // вы можете извлечь EntityManager через $this->getDoctrine()
-        // или вы можете добавить аргумент в ваше действие: index(EntityManagerInterface $em)
+
+        $ip = $this->container->get('request_stack')->getCurrentRequest()->getClientIp();
+        $browser = $request->headers->get('User-Agent');
+
+        $review = new UserReview();
+        $form = $this->createForm(UserReviewForm::class, $review, ['ip'=>$ip ,'browser'=>$browser]);
+        $form->handleRequest($request);
+        if ($form->isSubmitted() && $form->isValid()) {
+
+
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($review);
+            $em->flush();
+
+
+            return $this->redirectToRoute('user_registration');
+
         $em = $this->getDoctrine()->getManager();
+        $em->persist($review);
 
-        $user = new UserReview();
-        $user->setUsername('Keyboard');
-        $user->setEMail('mail.test@test.task');
-        $user->setUserHomepage('Ergonomic and stylish!');
-        $user->setUserReview('ErgonomicErgonomicErgonomicErgonomicErgonomicErgonomicErgonomicErgonomic 
-                                        ErgonomicErgonomicErgonomicErgonomicErgonomicErgonomicErgonomicErgonomic 
-                                        ErgonomicErgonomicErgonomicErgonomicErgonomicErgonomicErgonomicErgonomic 
-                                        ErgonomicErgonomicErgonomicErgonomicErgonomicErgonomicErgonomicErgonomic 
-                                        ErgonomicErgonomicErgonomicErgonomicErgonomicErgonomicErgonomicErgonomic 
-                                        ErgonomicErgonomicErgonomicErgonomicErgonomicErgonomicErgonomicErgonomic 
-                                        ErgonomicErgonomicErgonomicErgonomicErgonomicErgonomicErgonomicErgonomic and stylish!');
-
-        // скажите Doctrine, что вы (в итоге) хотите сохранить Товар (пока без запросов)
-        $em->persist($user);
-
-        // на самом деле выполнить запросы (т.е. запрос INSERT)
         $em->flush();
-
-        return new Response('Saved new product with id '.$user->getId());
     }
 
-    /**
-     * @Route("/user/{id}", name="product_show")
-     */
-    public function showAction($id)
-    {
-        $user = $this->getDoctrine()
-            ->getRepository(User::class)
-            ->find($id);
+        return $this->render(
+        'task/review_form.html.twig',
+        array(
+            'form'  =>  $form->createView(),
+            'ip'    =>  $ip,
+            'browser' => $browser,
 
-        if (!$user) {
-            throw $this->createNotFoundException(
-                'No product found for id '.$id
-            );
-        }
-
-        return new Response('Check out this great product: '.$user->getUsername());
-
-        // или отобразить шаблон
-        // в шаблоне, отобразить всё с {{ product.name }}
-        // вернуть $this->render('product/show.html.twig', ['product' => $product]);
+        )
+    );
     }
+
 }

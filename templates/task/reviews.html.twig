@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Guest book{% endblock %}
+{% block body %}
+<section class="wrapper">
+    <div class="inner">
+        <header class="special">
+            <h2>Sem turpis amet semper</h2>
+            <p>In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor.</p>
+        </header>
+
+
+
+            <table id="table-id" class="table">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>E-mail</th>
+                    <th>Reviews</th>
+                    <th>Date</th>
+
+                </tr>
+                </thead>
+
+
+                {% for row in pagination %}
+                <tbody>
+                <tr>
+                    <td>{{ row.username }}</td>
+
+                    <td>{{ row.eMail }}</td>
+                    <td>{{ row.userReview }}</td>
+                    <td>{{ row.pubDate|date('H:i:s y/m/d') }}</td>
+
+                </tr>
+
+                </tbody>
+                {% endfor %}
+            </table>
+
+<div class="navigate">
+    {{ knp_pagination_render(pagination) }}
+</div>
+
+
+
+
+    </div>
+</section>
+
+{% endblock %}
+
