@@ -1,24 +1,19 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}{% trans %}Sign in{% endtrans %}!{% endblock %}
 
 {% block body %}
-<section class="wrapper">
-<div class="inner">
-    <header class="special">
-        <h2>Sem turpis amet semper</h2>
-        <p>In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor.</p>
-    </header>
+
         <form method="post">
             {% if error %}
                 <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
 
-            <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-            <label for="inputUsername" class="sr-only">Username</label>
-            <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="Username" required autofocus>
-            <label for="inputPassword" class="sr-only">Password</label>
-            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="Password" required>
+            <h1 class="h3 mb-3 font-weight-normal">{% trans  %}Please sign in{% endtrans %}</h1>
+            <label for="inputUsername" class="sr-only">{% trans  %}Username{% endtrans %}</label>
+            <input type="text" value="{{ last_username }}" name="username" id="inputUsername" class="form-control" placeholder="{% trans  %}Username{% endtrans %}" required autofocus>
+            <label for="inputPassword" class="sr-only">{% trans  %}Password{% endtrans %}</label>
+            <input type="password" name="password" id="inputPassword" class="form-control" placeholder="{% trans  %}Password{% endtrans %}" required>
 
             <input type="hidden" name="_csrf_token"
                    value="{{ csrf_token('authenticate') }}"
@@ -36,9 +31,8 @@
             #}
 
             <button class="btn btn-lg " type="submit">
-                Sign in
+                {% trans  %}Sign in{% endtrans %}
             </button>
         </form>
-        </div>
-</section>
+
 {% endblock %}

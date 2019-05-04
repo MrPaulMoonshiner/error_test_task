@@ -1,20 +1,23 @@
 {% extends 'base.html.twig' %}
+{% block title %}{% trans  %}Welcome{% endtrans %}{% endblock %}
 {% block header %}
 
 <body class="is-preload">
 <header id="header">
-    <a class="logo">Welcome!</a>
+    <a class="logo">{% trans  %}Welcome{% endtrans %}!</a>
     <nav>
-        <a href="#menu">Menu</a>
+        <a href="#menu">{% trans  %}Menu{% endtrans %}</a>
     </nav>
 </header>
 {% endblock %}
+{% block bodyHead %}{% endblock %}
 {% block body %}
 
 
 <body class="is-preload">
 <div id="heading" >
-    <h1>Guest book</h1>
+    <h1>{% trans  %}Guest book{% endtrans %}</h1>
 </div>
 </body>
 {% endblock %}
+{% block endBodyHead %}{% endblock %}

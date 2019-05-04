@@ -24,7 +24,6 @@ class __TwigTemplate_4bb6a3266a9c457c12655750e13550ce79ec69a004b5810f253d764029b
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
-            'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -54,24 +53,6 @@ class __TwigTemplate_4bb6a3266a9c457c12655750e13550ce79ec69a004b5810f253d764029b
     }
 
     // line 3
-    public function block_title($context, array $blocks = [])
-    {
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
-
-        echo "Guest book";
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-    }
-
-    // line 4
     public function block_body($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -80,51 +61,56 @@ class __TwigTemplate_4bb6a3266a9c457c12655750e13550ce79ec69a004b5810f253d764029b
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 5
-        echo "<section class=\"wrapper\">
-    <div class=\"inner\">
-        <header class=\"special\">
-            <h2>Sem turpis amet semper</h2>
-            <p>In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor.</p>
-        </header>
-
-
+        // line 4
+        echo "
 
             <table id=\"table-id\" class=\"table\">
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>E-mail</th>
-                    <th>Reviews</th>
-                    <th>Date</th>
+                    <th>";
+        // line 9
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Name", [], "messages");
+        echo "</th>
+                    <th>";
+        // line 10
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("E-mail", [], "messages");
+        echo "</th>
+                    <th>";
+        // line 11
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Review", [], "messages");
+        echo "</th>
+                    <th>";
+        // line 12
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Date", [], "messages");
+        echo "</th>
 
                 </tr>
                 </thead>
 
 
                 ";
-        // line 26
+        // line 18
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new RuntimeError('Variable "pagination" does not exist.', 26, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new RuntimeError('Variable "pagination" does not exist.', 18, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["row"]) {
-            // line 27
+            // line 19
             echo "                <tbody>
                 <tr>
                     <td>";
-            // line 29
+            // line 21
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["row"], "username", []), "html", null, true);
             echo "</td>
 
                     <td>";
-            // line 31
+            // line 23
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["row"], "eMail", []), "html", null, true);
             echo "</td>
                     <td>";
-            // line 32
+            // line 24
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["row"], "userReview", []), "html", null, true);
             echo "</td>
                     <td>";
-            // line 33
+            // line 25
             echo twig_escape_filter($this->env, twig_date_format_filter($this->env, twig_get_attribute($this->env, $this->source, $context["row"], "pubDate", []), "H:i:s y/m/d"), "html", null, true);
             echo "</td>
 
@@ -136,21 +122,18 @@ class __TwigTemplate_4bb6a3266a9c457c12655750e13550ce79ec69a004b5810f253d764029b
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['row'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
+        // line 31
         echo "            </table>
 
 <div class=\"navigate\">
     ";
-        // line 42
-        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new RuntimeError('Variable "pagination" does not exist.', 42, $this->source); })()));
+        // line 34
+        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->render($this->env, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new RuntimeError('Variable "pagination" does not exist.', 34, $this->source); })()));
         echo "
 </div>
 
 
 
-
-    </div>
-</section>
 
 ";
         
@@ -173,31 +156,23 @@ class __TwigTemplate_4bb6a3266a9c457c12655750e13550ce79ec69a004b5810f253d764029b
 
     public function getDebugInfo()
     {
-        return array (  145 => 42,  140 => 39,  128 => 33,  124 => 32,  120 => 31,  115 => 29,  111 => 27,  107 => 26,  84 => 5,  75 => 4,  57 => 3,  35 => 1,);
+        return array (  131 => 34,  126 => 31,  114 => 25,  110 => 24,  106 => 23,  101 => 21,  97 => 19,  93 => 18,  84 => 12,  80 => 11,  76 => 10,  72 => 9,  65 => 4,  56 => 3,  34 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Guest book{% endblock %}
 {% block body %}
-<section class=\"wrapper\">
-    <div class=\"inner\">
-        <header class=\"special\">
-            <h2>Sem turpis amet semper</h2>
-            <p>In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor.</p>
-        </header>
-
 
 
             <table id=\"table-id\" class=\"table\">
                 <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>E-mail</th>
-                    <th>Reviews</th>
-                    <th>Date</th>
+                    <th>{% trans  %}Name{% endtrans %}</th>
+                    <th>{% trans  %}E-mail{% endtrans %}</th>
+                    <th>{% trans  %}Review{% endtrans %}</th>
+                    <th>{% trans  %}Date{% endtrans %}</th>
 
                 </tr>
                 </thead>
@@ -224,9 +199,6 @@ class __TwigTemplate_4bb6a3266a9c457c12655750e13550ce79ec69a004b5810f253d764029b
 
 
 
-
-    </div>
-</section>
 
 {% endblock %}
 

@@ -29,8 +29,9 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
             'title' => [$this, 'block_title'],
             'stylesheets' => [$this, 'block_stylesheets'],
             'header' => [$this, 'block_header'],
+            'bodyHead' => [$this, 'block_bodyHead'],
             'body' => [$this, 'block_body'],
-            'javascripts' => [$this, 'block_javascripts'],
+            'endBodyHead' => [$this, 'block_endBodyHead'],
         ];
     }
 
@@ -76,58 +77,105 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
         <li><a href=\"";
         // line 34
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_homepage");
-        echo "\">Home</a></li>
+        echo "\">";
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Home", [], "messages");
+        echo "</a></li>
        <li><a href=\"";
         // line 35
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_yop");
-        echo "\">Reviews</a></li>
+        echo "\">";
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Reviews", [], "messages");
+        echo "</a></li>
         <li><a href=\"";
         // line 36
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_review");
-        echo "\">Leave review</a></li>
+        echo "\">";
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Leave review", [], "messages");
+        echo "</a></li>
         <li><a href=\"";
         // line 37
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_registration");
-        echo "\">Sign up</a></li>
+        echo "\">";
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Sign up", [], "messages");
+        echo "</a></li>
         <li><a href=\"";
         // line 38
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
-        echo "\">Sign in</a></li>
+        echo "\">";
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Sign in", [], "messages");
+        echo "</a></li>
         <li><a href=\"";
         // line 39
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
-        echo "\">Logout</a></li>
+        echo "\">";
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Logout", [], "messages");
+        echo "</a></li>
 
 
     </ul>
 </nav>
-    ";
-        // line 45
-        echo "    ";
-        $this->displayBlock('body', $context, $blocks);
-        // line 48
-        echo "        ";
-        $this->displayBlock('javascripts', $context, $blocks);
-        // line 90
+";
+        // line 44
+        $this->displayBlock('bodyHead', $context, $blocks);
+        // line 53
         echo "
+";
+        // line 54
+        $this->displayBlock('body', $context, $blocks);
+        // line 55
+        $this->displayBlock('endBodyHead', $context, $blocks);
+        // line 59
+        echo "<footer id=\"footer\">
+    <div class=\"inner\">
+        <div class=\"content\">
+            <section>
+                <h3>Accumsan montes viverra</h3>
+                <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing. Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing sed feugiat eu faucibus. Integer ac sed amet praesent. Nunc lacinia ante nunc ac gravida.</p>
+            </section>
+            <section>
+                <h4>Sem turpis amet semper</h4>
+                <ul class=\"alt\">
+                    <li><a href=\"#\">Dolor pulvinar sed etiam.</a></li>
+                    <li><a href=\"#\">Etiam vel lorem sed amet.</a></li>
+                    <li><a href=\"#\">Felis enim feugiat viverra.</a></li>
+                    <li><a href=\"#\">Dolor pulvinar magna etiam.</a></li>
+                </ul>
+            </section>
+            <section>
+                <h4>Magna sed ipsum</h4>
+                <ul class=\"plain\">
+                    <li><a href=\"#\"><i class=\"icon fa-twitter\">&nbsp;</i>Twitter</a></li>
+                    <li><a href=\"#\"><i class=\"icon fa-facebook\">&nbsp;</i>Facebook</a></li>
+                    <li><a href=\"#\"><i class=\"icon fa-instagram\">&nbsp;</i>Instagram</a></li>
+                    <li><a href=\"#\"><i class=\"icon fa-github\">&nbsp;</i>Github</a></li>
+                </ul>
+            </section>
+        </div>
+        <div class=\"copyright\">
+            &copy; Untitled. Photos <a href=\"https://unsplash.co\">Unsplash</a>, Video <a href=\"https://coverr.co\">Coverr</a>.
+        </div>
+    </div>
+</footer>
+
+<!-- Scripts -->
 <script src=\"";
-        // line 91
+        // line 92
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/jquery.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 92
+        // line 93
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/browser.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 93
+        // line 94
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/breakpoints.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 94
+        // line 95
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/util.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 95
+        // line 96
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/main.js"), "html", null, true);
         echo "\"></script>
 
@@ -150,7 +198,7 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo twig_escape_filter($this->env, (isset($context["title"]) || array_key_exists("title", $context) ? $context["title"] : (function () { throw new RuntimeError('Variable "title" does not exist.', 8, $this->source); })()), "html", null, true);
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Guest book", [], "messages");
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -195,9 +243,17 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
         echo "
 <body class=\"is-preload\">
 <header id=\"header\">
-    <a class=\"logo\" href=\"index.html\">Guest book</a>
+    <a class=\"logo\" href=\"";
+        // line 26
+        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_homepage");
+        echo "\">";
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Guest book", [], "messages");
+        echo "</a>
     <nav>
-        <a href=\"#menu\">Menu</a>
+        <a href=\"#menu\">";
+        // line 28
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Menu", [], "messages");
+        echo "</a>
     </nav>
 </header>
 ";
@@ -209,17 +265,29 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 
     }
 
-    // line 45
-    public function block_body($context, array $blocks = [])
+    // line 44
+    public function block_bodyHead($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "bodyHead"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "bodyHead"));
 
-        // line 46
-        echo "
+        // line 45
+        echo "<section class=\"wrapper\">
+    <div class=\"inner\">
+        <header class=\"special\">
+            <h2>";
+        // line 48
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Welcome to Guest book", [], "messages");
+        echo "</h2>
+            <p>";
+        // line 49
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Give us a review and we will become even better", [], "messages");
+        echo "!</p>
+        </header>
+
         ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -229,56 +297,35 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 
     }
 
-    // line 48
-    public function block_javascripts($context, array $blocks = [])
+    // line 54
+    public function block_body($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "javascripts"));
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 49
-        echo "        <footer id=\"footer\">
-            <div class=\"inner\">
-                <div class=\"content\">
-                    <section>
-                        <h3>Accumsan montes viverra</h3>
-                        <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing. Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing sed feugiat eu faucibus. Integer ac sed amet praesent. Nunc lacinia ante nunc ac gravida.</p>
-                    </section>
-                    <section>
-                        <h4>Sem turpis amet semper</h4>
-                        <ul class=\"alt\">
-                            <li><a href=\"#\">Dolor pulvinar sed etiam.</a></li>
-                            <li><a href=\"#\">Etiam vel lorem sed amet.</a></li>
-                            <li><a href=\"#\">Felis enim feugiat viverra.</a></li>
-                            <li><a href=\"#\">Dolor pulvinar magna etiam.</a></li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h4>Magna sed ipsum</h4>
-                        <ul class=\"plain\">
-                            <li><a href=\"#\"><i class=\"icon fa-twitter\">&nbsp;</i>Twitter</a></li>
-                            <li><a href=\"#\"><i class=\"icon fa-facebook\">&nbsp;</i>Facebook</a></li>
-                            <li><a href=\"#\"><i class=\"icon fa-instagram\">&nbsp;</i>Instagram</a></li>
-                            <li><a href=\"#\"><i class=\"icon fa-github\">&nbsp;</i>Github</a></li>
-                        </ul>
-                    </section>
-                </div>
-                <div class=\"copyright\">
-                    &copy; Untitled. Photos <a href=\"https://unsplash.co\">Unsplash</a>, Video <a href=\"https://coverr.co\">Coverr</a>.
-                </div>
-            </div>
-        </footer>
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
-        <!-- Scripts -->
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
+    }
 
+    // line 55
+    public function block_endBodyHead($context, array $blocks = [])
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "endBodyHead"));
 
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "endBodyHead"));
 
-
-
-
+        // line 56
+        echo "    </div>
+    </section>
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -300,7 +347,7 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 
     public function getDebugInfo()
     {
-        return array (  242 => 49,  233 => 48,  222 => 46,  213 => 45,  195 => 23,  186 => 22,  172 => 16,  163 => 15,  145 => 8,  131 => 95,  127 => 94,  123 => 93,  119 => 92,  115 => 91,  112 => 90,  109 => 48,  106 => 45,  98 => 39,  94 => 38,  90 => 37,  86 => 36,  82 => 35,  78 => 34,  74 => 32,  72 => 22,  67 => 19,  65 => 15,  55 => 8,  46 => 1,);
+        return array (  327 => 56,  318 => 55,  301 => 54,  287 => 49,  283 => 48,  278 => 45,  269 => 44,  255 => 28,  248 => 26,  243 => 23,  234 => 22,  220 => 16,  211 => 15,  193 => 8,  179 => 96,  175 => 95,  171 => 94,  167 => 93,  163 => 92,  128 => 59,  126 => 55,  124 => 54,  121 => 53,  119 => 44,  109 => 39,  103 => 38,  97 => 37,  91 => 36,  85 => 35,  79 => 34,  75 => 32,  73 => 22,  68 => 19,  66 => 15,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -312,7 +359,7 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 
 
 
-    <title>{% block title %}{{ title }}{% endblock %}</title>
+    <title>{% block title %}{% trans  %}Guest book{% endtrans %}{% endblock %}</title>
     <meta charset=\"utf-8\" />
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1, user-scalable=no\" />
     <meta name=\"description\" content=\"\" />
@@ -330,71 +377,72 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 
 <body class=\"is-preload\">
 <header id=\"header\">
-    <a class=\"logo\" href=\"index.html\">Guest book</a>
+    <a class=\"logo\" href=\"{{ path('app_homepage') }}\">{% trans  %}Guest book{% endtrans %}</a>
     <nav>
-        <a href=\"#menu\">Menu</a>
+        <a href=\"#menu\">{% trans  %}Menu{% endtrans %}</a>
     </nav>
 </header>
 {% endblock %}
 <nav id=\"menu\">
     <ul class=\"links\">
-        <li><a href=\"{{ path('app_homepage')}}\">Home</a></li>
-       <li><a href=\"{{ path('app_yop') }}\">Reviews</a></li>
-        <li><a href=\"{{ path('user_review') }}\">Leave review</a></li>
-        <li><a href=\"{{ path('user_registration') }}\">Sign up</a></li>
-        <li><a href=\"{{ path('app_login') }}\">Sign in</a></li>
-        <li><a href=\"{{ path('app_logout') }}\">Logout</a></li>
+        <li><a href=\"{{ path('app_homepage')}}\">{% trans  %}Home{% endtrans %}</a></li>
+       <li><a href=\"{{ path('app_yop') }}\">{% trans  %}Reviews{% endtrans %}</a></li>
+        <li><a href=\"{{ path('user_review') }}\">{% trans  %}Leave review{% endtrans %}</a></li>
+        <li><a href=\"{{ path('user_registration') }}\">{% trans  %}Sign up{% endtrans %}</a></li>
+        <li><a href=\"{{ path('app_login') }}\">{% trans  %}Sign in{% endtrans %}</a></li>
+        <li><a href=\"{{ path('app_logout') }}\">{% trans  %}Logout{% endtrans %}</a></li>
 
 
     </ul>
 </nav>
-    {#{{ t }}#}
-    {% block body %}
+{% block bodyHead %}
+<section class=\"wrapper\">
+    <div class=\"inner\">
+        <header class=\"special\">
+            <h2>{% trans %}Welcome to Guest book{% endtrans %}</h2>
+            <p>{% trans %}Give us a review and we will become even better{% endtrans %}!</p>
+        </header>
 
         {% endblock %}
-        {% block javascripts %}
-        <footer id=\"footer\">
-            <div class=\"inner\">
-                <div class=\"content\">
-                    <section>
-                        <h3>Accumsan montes viverra</h3>
-                        <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing. Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing sed feugiat eu faucibus. Integer ac sed amet praesent. Nunc lacinia ante nunc ac gravida.</p>
-                    </section>
-                    <section>
-                        <h4>Sem turpis amet semper</h4>
-                        <ul class=\"alt\">
-                            <li><a href=\"#\">Dolor pulvinar sed etiam.</a></li>
-                            <li><a href=\"#\">Etiam vel lorem sed amet.</a></li>
-                            <li><a href=\"#\">Felis enim feugiat viverra.</a></li>
-                            <li><a href=\"#\">Dolor pulvinar magna etiam.</a></li>
-                        </ul>
-                    </section>
-                    <section>
-                        <h4>Magna sed ipsum</h4>
-                        <ul class=\"plain\">
-                            <li><a href=\"#\"><i class=\"icon fa-twitter\">&nbsp;</i>Twitter</a></li>
-                            <li><a href=\"#\"><i class=\"icon fa-facebook\">&nbsp;</i>Facebook</a></li>
-                            <li><a href=\"#\"><i class=\"icon fa-instagram\">&nbsp;</i>Instagram</a></li>
-                            <li><a href=\"#\"><i class=\"icon fa-github\">&nbsp;</i>Github</a></li>
-                        </ul>
-                    </section>
-                </div>
-                <div class=\"copyright\">
-                    &copy; Untitled. Photos <a href=\"https://unsplash.co\">Unsplash</a>, Video <a href=\"https://coverr.co\">Coverr</a>.
-                </div>
-            </div>
-        </footer>
 
-        <!-- Scripts -->
-
-
-
-
-
-
-
+{% block body %}{% endblock %}
+{% block endBodyHead %}
+    </div>
+    </section>
 {% endblock %}
+<footer id=\"footer\">
+    <div class=\"inner\">
+        <div class=\"content\">
+            <section>
+                <h3>Accumsan montes viverra</h3>
+                <p>Nunc lacinia ante nunc ac lobortis. Interdum adipiscing gravida odio porttitor sem non mi integer non faucibus ornare mi ut ante amet placerat aliquet. Volutpat eu sed ante lacinia sapien lorem accumsan varius montes viverra nibh in adipiscing. Lorem ipsum dolor vestibulum ante ipsum primis in faucibus vestibulum. Blandit adipiscing eu felis iaculis volutpat ac adipiscing sed feugiat eu faucibus. Integer ac sed amet praesent. Nunc lacinia ante nunc ac gravida.</p>
+            </section>
+            <section>
+                <h4>Sem turpis amet semper</h4>
+                <ul class=\"alt\">
+                    <li><a href=\"#\">Dolor pulvinar sed etiam.</a></li>
+                    <li><a href=\"#\">Etiam vel lorem sed amet.</a></li>
+                    <li><a href=\"#\">Felis enim feugiat viverra.</a></li>
+                    <li><a href=\"#\">Dolor pulvinar magna etiam.</a></li>
+                </ul>
+            </section>
+            <section>
+                <h4>Magna sed ipsum</h4>
+                <ul class=\"plain\">
+                    <li><a href=\"#\"><i class=\"icon fa-twitter\">&nbsp;</i>Twitter</a></li>
+                    <li><a href=\"#\"><i class=\"icon fa-facebook\">&nbsp;</i>Facebook</a></li>
+                    <li><a href=\"#\"><i class=\"icon fa-instagram\">&nbsp;</i>Instagram</a></li>
+                    <li><a href=\"#\"><i class=\"icon fa-github\">&nbsp;</i>Github</a></li>
+                </ul>
+            </section>
+        </div>
+        <div class=\"copyright\">
+            &copy; Untitled. Photos <a href=\"https://unsplash.co\">Unsplash</a>, Video <a href=\"https://coverr.co\">Coverr</a>.
+        </div>
+    </div>
+</footer>
 
+<!-- Scripts -->
 <script src=\"{{ asset('js/jquery.min.js') }}\"></script>
 <script src=\"{{ asset('js/browser.min.js') }}\"></script>
 <script src=\"{{ asset('js/breakpoints.min.js') }}\"></script>

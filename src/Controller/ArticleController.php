@@ -13,10 +13,8 @@ class ArticleController extends AbstractController
      */
 	public function homepage(Request $request)
 	{
-	    $title = "Welcome!";
-	    return $this->render('task/homepage.html.twig',[
-	        'title' => $title,
-        ]);
+
+	    return $this->render('task/homepage.html.twig');
 	}
 
     /**

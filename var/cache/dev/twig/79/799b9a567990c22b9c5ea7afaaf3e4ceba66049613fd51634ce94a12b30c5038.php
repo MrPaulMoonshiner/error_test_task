@@ -62,7 +62,8 @@ class __TwigTemplate_8bb5b789012e1308c1504e31ecb421e14aba22b3663885451ecd8eeabaa
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
-        echo "Log in!";
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Sign in", [], "messages");
+        echo "!";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -81,49 +82,60 @@ class __TwigTemplate_8bb5b789012e1308c1504e31ecb421e14aba22b3663885451ecd8eeabaa
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 6
-        echo "<section class=\"wrapper\">
-<div class=\"inner\">
-    <header class=\"special\">
-        <h2>Sem turpis amet semper</h2>
-        <p>In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor.</p>
-    </header>
+        echo "
         <form method=\"post\">
             ";
-        // line 13
-        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 13, $this->source); })())) {
-            // line 14
+        // line 8
+        if ((isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 8, $this->source); })())) {
+            // line 9
             echo "                <div class=\"alert alert-danger\">";
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 14, $this->source); })()), "messageKey", []), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 14, $this->source); })()), "messageData", []), "security"), "html", null, true);
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans(twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 9, $this->source); })()), "messageKey", []), twig_get_attribute($this->env, $this->source, (isset($context["error"]) || array_key_exists("error", $context) ? $context["error"] : (function () { throw new RuntimeError('Variable "error" does not exist.', 9, $this->source); })()), "messageData", []), "security"), "html", null, true);
             echo "</div>
             ";
         }
-        // line 16
+        // line 11
         echo "
-            <h1 class=\"h3 mb-3 font-weight-normal\">Please sign in</h1>
-            <label for=\"inputUsername\" class=\"sr-only\">Username</label>
+            <h1 class=\"h3 mb-3 font-weight-normal\">";
+        // line 12
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Please sign in", [], "messages");
+        echo "</h1>
+            <label for=\"inputUsername\" class=\"sr-only\">";
+        // line 13
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Username", [], "messages");
+        echo "</label>
             <input type=\"text\" value=\"";
-        // line 19
-        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 19, $this->source); })()), "html", null, true);
-        echo "\" name=\"username\" id=\"inputUsername\" class=\"form-control\" placeholder=\"Username\" required autofocus>
-            <label for=\"inputPassword\" class=\"sr-only\">Password</label>
-            <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required>
+        // line 14
+        echo twig_escape_filter($this->env, (isset($context["last_username"]) || array_key_exists("last_username", $context) ? $context["last_username"] : (function () { throw new RuntimeError('Variable "last_username" does not exist.', 14, $this->source); })()), "html", null, true);
+        echo "\" name=\"username\" id=\"inputUsername\" class=\"form-control\" placeholder=\"";
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Username", [], "messages");
+        echo "\" required autofocus>
+            <label for=\"inputPassword\" class=\"sr-only\">";
+        // line 15
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Password", [], "messages");
+        echo "</label>
+            <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"";
+        // line 16
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Password", [], "messages");
+        echo "\" required>
 
             <input type=\"hidden\" name=\"_csrf_token\"
                    value=\"";
-        // line 24
+        // line 19
         echo twig_escape_filter($this->env, $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderCsrfToken("authenticate"), "html", null, true);
         echo "\"
             >
 
             ";
-        // line 37
+        // line 32
         echo "
             <button class=\"btn btn-lg \" type=\"submit\">
-                Sign in
-            </button>
+                ";
+        // line 34
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Sign in", [], "messages");
+        // line 35
+        echo "            </button>
         </form>
-        </div>
-</section>
+
 ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
@@ -145,32 +157,27 @@ class __TwigTemplate_8bb5b789012e1308c1504e31ecb421e14aba22b3663885451ecd8eeabaa
 
     public function getDebugInfo()
     {
-        return array (  120 => 37,  114 => 24,  106 => 19,  101 => 16,  95 => 14,  93 => 13,  84 => 6,  75 => 5,  57 => 3,  35 => 1,);
+        return array (  136 => 35,  134 => 34,  130 => 32,  124 => 19,  118 => 16,  114 => 15,  108 => 14,  104 => 13,  100 => 12,  97 => 11,  91 => 9,  89 => 8,  85 => 6,  76 => 5,  57 => 3,  35 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}{% trans %}Sign in{% endtrans %}!{% endblock %}
 
 {% block body %}
-<section class=\"wrapper\">
-<div class=\"inner\">
-    <header class=\"special\">
-        <h2>Sem turpis amet semper</h2>
-        <p>In arcu accumsan arcu adipiscing accumsan orci ac. Felis id enim aliquet. Accumsan ac integer lobortis commodo ornare aliquet accumsan erat tempus amet porttitor.</p>
-    </header>
+
         <form method=\"post\">
             {% if error %}
                 <div class=\"alert alert-danger\">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
             {% endif %}
 
-            <h1 class=\"h3 mb-3 font-weight-normal\">Please sign in</h1>
-            <label for=\"inputUsername\" class=\"sr-only\">Username</label>
-            <input type=\"text\" value=\"{{ last_username }}\" name=\"username\" id=\"inputUsername\" class=\"form-control\" placeholder=\"Username\" required autofocus>
-            <label for=\"inputPassword\" class=\"sr-only\">Password</label>
-            <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"Password\" required>
+            <h1 class=\"h3 mb-3 font-weight-normal\">{% trans  %}Please sign in{% endtrans %}</h1>
+            <label for=\"inputUsername\" class=\"sr-only\">{% trans  %}Username{% endtrans %}</label>
+            <input type=\"text\" value=\"{{ last_username }}\" name=\"username\" id=\"inputUsername\" class=\"form-control\" placeholder=\"{% trans  %}Username{% endtrans %}\" required autofocus>
+            <label for=\"inputPassword\" class=\"sr-only\">{% trans  %}Password{% endtrans %}</label>
+            <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"{% trans  %}Password{% endtrans %}\" required>
 
             <input type=\"hidden\" name=\"_csrf_token\"
                    value=\"{{ csrf_token('authenticate') }}\"
@@ -188,11 +195,10 @@ class __TwigTemplate_8bb5b789012e1308c1504e31ecb421e14aba22b3663885451ecd8eeabaa
             #}
 
             <button class=\"btn btn-lg \" type=\"submit\">
-                Sign in
+                {% trans  %}Sign in{% endtrans %}
             </button>
         </form>
-        </div>
-</section>
+
 {% endblock %}
 ", "security/login.html.twig", "/var/www/html/TestTask/templates/security/login.html.twig");
     }
