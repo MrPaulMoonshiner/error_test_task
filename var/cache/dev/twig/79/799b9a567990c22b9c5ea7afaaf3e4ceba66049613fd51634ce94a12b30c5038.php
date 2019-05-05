@@ -99,7 +99,7 @@ class __TwigTemplate_8bb5b789012e1308c1504e31ecb421e14aba22b3663885451ecd8eeabaa
         // line 12
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Please sign in", [], "messages");
         echo "</h1>
-            <label for=\"inputUsername\" class=\"sr-only\">";
+                 <label for=\"inputUsername\" class=\"sr-only\">";
         // line 13
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Username", [], "messages");
         echo "</label>
@@ -109,7 +109,7 @@ class __TwigTemplate_8bb5b789012e1308c1504e31ecb421e14aba22b3663885451ecd8eeabaa
         echo "\" name=\"username\" id=\"inputUsername\" class=\"form-control\" placeholder=\"";
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Username", [], "messages");
         echo "\" required autofocus>
-            <label for=\"inputPassword\" class=\"sr-only\">";
+                  <label for=\"inputPassword\" class=\"sr-only\">";
         // line 15
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Password", [], "messages");
         echo "</label>
@@ -174,9 +174,9 @@ class __TwigTemplate_8bb5b789012e1308c1504e31ecb421e14aba22b3663885451ecd8eeabaa
             {% endif %}
 
             <h1 class=\"h3 mb-3 font-weight-normal\">{% trans  %}Please sign in{% endtrans %}</h1>
-            <label for=\"inputUsername\" class=\"sr-only\">{% trans  %}Username{% endtrans %}</label>
+                 <label for=\"inputUsername\" class=\"sr-only\">{% trans  %}Username{% endtrans %}</label>
             <input type=\"text\" value=\"{{ last_username }}\" name=\"username\" id=\"inputUsername\" class=\"form-control\" placeholder=\"{% trans  %}Username{% endtrans %}\" required autofocus>
-            <label for=\"inputPassword\" class=\"sr-only\">{% trans  %}Password{% endtrans %}</label>
+                  <label for=\"inputPassword\" class=\"sr-only\">{% trans  %}Password{% endtrans %}</label>
             <input type=\"password\" name=\"password\" id=\"inputPassword\" class=\"form-control\" placeholder=\"{% trans  %}Password{% endtrans %}\" required>
 
             <input type=\"hidden\" name=\"_csrf_token\"

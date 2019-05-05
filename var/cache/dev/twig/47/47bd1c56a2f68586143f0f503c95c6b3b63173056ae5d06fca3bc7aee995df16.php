@@ -71,60 +71,75 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 ";
         // line 22
         $this->displayBlock('header', $context, $blocks);
-        // line 32
+        // line 34
         echo "<nav id=\"menu\">
     <ul class=\"links\">
         <li><a href=\"";
-        // line 34
+        // line 36
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_homepage");
         echo "\">";
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Home", [], "messages");
         echo "</a></li>
        <li><a href=\"";
-        // line 35
+        // line 37
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_yop");
         echo "\">";
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Reviews", [], "messages");
         echo "</a></li>
         <li><a href=\"";
-        // line 36
+        // line 38
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_review");
         echo "\">";
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Leave review", [], "messages");
         echo "</a></li>
-        <li><a href=\"";
-        // line 37
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_registration");
-        echo "\">";
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Sign up", [], "messages");
-        echo "</a></li>
-        <li><a href=\"";
-        // line 38
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
-        echo "\">";
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Sign in", [], "messages");
-        echo "</a></li>
-        <li><a href=\"";
-        // line 39
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
-        echo "\">";
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Logout", [], "messages");
-        echo "</a></li>
 
+        ";
+        // line 40
+        if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("IS_AUTHENTICATED_REMEMBERED")) {
+            // line 41
+            echo "        <li><a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_logout");
+            echo "\">";
+            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Logout", [], "messages");
+            echo "</a></li>
+        <li><a href=\"";
+            // line 42
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("/lang");
+            echo "\">";
+            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Language", [], "messages");
+            echo "</a></li>
 
+        ";
+        } else {
+            // line 45
+            echo "        <li><a href=\"";
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_registration");
+            echo "\">";
+            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Sign up", [], "messages");
+            echo "</a></li>
+        <li><a href=\"";
+            // line 46
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
+            echo "\">";
+            echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Sign in", [], "messages");
+            echo "</a></li>
+        ";
+        }
+        // line 48
+        echo "
     </ul>
 </nav>
 ";
-        // line 44
+        // line 51
         $this->displayBlock('bodyHead', $context, $blocks);
-        // line 53
+        // line 60
         echo "
 ";
-        // line 54
+        // line 61
         $this->displayBlock('body', $context, $blocks);
-        // line 55
+        // line 62
         $this->displayBlock('endBodyHead', $context, $blocks);
-        // line 59
+        // line 66
         echo "<footer id=\"footer\">
     <div class=\"inner\">
         <div class=\"content\">
@@ -159,23 +174,23 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 
 <!-- Scripts -->
 <script src=\"";
-        // line 92
+        // line 99
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/jquery.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 93
+        // line 100
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/browser.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 94
+        // line 101
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/breakpoints.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 95
+        // line 102
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/util.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 96
+        // line 103
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/main.js"), "html", null, true);
         echo "\"></script>
 
@@ -249,9 +264,11 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
         echo "\">";
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Guest book", [], "messages");
         echo "</a>
+
+
     <nav>
         <a href=\"#menu\">";
-        // line 28
+        // line 30
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Menu", [], "messages");
         echo "</a>
     </nav>
@@ -265,7 +282,7 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 
     }
 
-    // line 44
+    // line 51
     public function block_bodyHead($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -274,16 +291,16 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "bodyHead"));
 
-        // line 45
+        // line 52
         echo "<section class=\"wrapper\">
     <div class=\"inner\">
         <header class=\"special\">
             <h2>";
-        // line 48
+        // line 55
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Welcome to Guest book", [], "messages");
         echo "</h2>
             <p>";
-        // line 49
+        // line 56
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Give us a review and we will become even better", [], "messages");
         echo "!</p>
         </header>
@@ -297,7 +314,7 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 
     }
 
-    // line 54
+    // line 61
     public function block_body($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -314,7 +331,7 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 
     }
 
-    // line 55
+    // line 62
     public function block_endBodyHead($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -323,7 +340,7 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "endBodyHead"));
 
-        // line 56
+        // line 63
         echo "    </div>
     </section>
 ";
@@ -347,7 +364,7 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 
     public function getDebugInfo()
     {
-        return array (  327 => 56,  318 => 55,  301 => 54,  287 => 49,  283 => 48,  278 => 45,  269 => 44,  255 => 28,  248 => 26,  243 => 23,  234 => 22,  220 => 16,  211 => 15,  193 => 8,  179 => 96,  175 => 95,  171 => 94,  167 => 93,  163 => 92,  128 => 59,  126 => 55,  124 => 54,  121 => 53,  119 => 44,  109 => 39,  103 => 38,  97 => 37,  91 => 36,  85 => 35,  79 => 34,  75 => 32,  73 => 22,  68 => 19,  66 => 15,  56 => 8,  47 => 1,);
+        return array (  344 => 63,  335 => 62,  318 => 61,  304 => 56,  300 => 55,  295 => 52,  286 => 51,  272 => 30,  263 => 26,  258 => 23,  249 => 22,  235 => 16,  226 => 15,  208 => 8,  194 => 103,  190 => 102,  186 => 101,  182 => 100,  178 => 99,  143 => 66,  141 => 62,  139 => 61,  136 => 60,  134 => 51,  129 => 48,  122 => 46,  115 => 45,  107 => 42,  100 => 41,  98 => 40,  91 => 38,  85 => 37,  79 => 36,  75 => 34,  73 => 22,  68 => 19,  66 => 15,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -378,6 +395,8 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 <body class=\"is-preload\">
 <header id=\"header\">
     <a class=\"logo\" href=\"{{ path('app_homepage') }}\">{% trans  %}Guest book{% endtrans %}</a>
+
+
     <nav>
         <a href=\"#menu\">{% trans  %}Menu{% endtrans %}</a>
     </nav>
@@ -388,10 +407,15 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
         <li><a href=\"{{ path('app_homepage')}}\">{% trans  %}Home{% endtrans %}</a></li>
        <li><a href=\"{{ path('app_yop') }}\">{% trans  %}Reviews{% endtrans %}</a></li>
         <li><a href=\"{{ path('user_review') }}\">{% trans  %}Leave review{% endtrans %}</a></li>
+
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED')  %}
+        <li><a href=\"{{ path('app_logout') }}\">{% trans  %}Logout{% endtrans %}</a></li>
+        <li><a href=\"{{ path('/lang') }}\">{% trans  %}Language{% endtrans %}</a></li>
+
+        {% else %}
         <li><a href=\"{{ path('user_registration') }}\">{% trans  %}Sign up{% endtrans %}</a></li>
         <li><a href=\"{{ path('app_login') }}\">{% trans  %}Sign in{% endtrans %}</a></li>
-        <li><a href=\"{{ path('app_logout') }}\">{% trans  %}Logout{% endtrans %}</a></li>
-
+        {% endif %}
 
     </ul>
 </nav>

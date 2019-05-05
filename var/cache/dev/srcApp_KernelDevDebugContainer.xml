@@ -713,6 +713,14 @@
       <argument type="service" id="security.csrf.token_manager"/>
       <argument type="service" id="security.user_password_encoder.generic"/>
     </service>
+    <service id="App\Subscribers\LocaleSubscriber" class="App\Subscribers\LocaleSubscriber" autowire="true" autoconfigure="true">
+      <tag name="kernel.event_subscriber"/>
+      <tag name="container.hot_path"/>
+    </service>
+    <service id="App\Subscribers\UserLocaleSubscriber" class="App\Subscribers\UserLocaleSubscriber" autowire="true" autoconfigure="true">
+      <tag name="kernel.event_subscriber"/>
+      <argument type="service" id="session"/>
+    </service>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>
@@ -1568,6 +1576,8 @@
             <argument>/var/www/html/TestTask/vendor/sonata-project/admin-bundle/src/Resources/translations/SonataAdminBundle.en.xliff</argument>
             <argument>/var/www/html/TestTask/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.en.xliff</argument>
             <argument>/var/www/html/TestTask/vendor/vich/uploader-bundle/Resources/translations/VichUploaderBundle.en.yml</argument>
+            <argument>/var/www/html/TestTask/translations/messages.en.xlf</argument>
+            <argument>/var/www/html/TestTask/translations/messages.en.yml</argument>
           </argument>
           <argument key="es" type="collection">
             <argument>/var/www/html/TestTask/vendor/symfony/validator/Resources/translations/validators.es.xlf</argument>
@@ -1869,6 +1879,7 @@
             <argument>/var/www/html/TestTask/vendor/knplabs/knp-paginator-bundle/Resources/translations/KnpPaginatorBundle.sw.xliff</argument>
           </argument>
           <argument key="ua" type="collection">
+            <argument>/var/www/html/TestTask/translations/messages.ua.xlf</argument>
             <argument>/var/www/html/TestTask/translations/messages.ua.yaml</argument>
           </argument>
         </argument>
@@ -1878,7 +1889,7 @@
       </call>
       <call method="setFallbackLocales">
         <argument type="collection">
-          <argument>ua</argument>
+          <argument>en</argument>
         </argument>
       </call>
     </service>
@@ -2329,6 +2340,22 @@
           <argument>onKernelRequest</argument>
         </argument>
         <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>kernel.request</argument>
+        <argument type="collection">
+          <argument type="service" id="App\Subscribers\LocaleSubscriber"/>
+          <argument>onKernelRequest</argument>
+        </argument>
+        <argument>17</argument>
+      </call>
+      <call method="addListener">
+        <argument>security.interactive_login</argument>
+        <argument type="collection">
+          <argument type="service" id="App\Subscribers\UserLocaleSubscriber"/>
+          <argument>onLogin</argument>
+        </argument>
+        <argument>15</argument>
       </call>
       <call method="addListener">
         <argument>kernel.response</argument>
@@ -4187,7 +4214,7 @@
       <argument type="collection"/>
       <call method="setOptions">
         <argument type="collection">
-          <argument key="login_path">/</argument>
+          <argument key="login_path">app_login</argument>
           <argument key="always_use_default_target_path">false</argument>
           <argument key="default_target_path">/</argument>
           <argument key="target_path_parameter">_target_path</argument>
@@ -4205,7 +4232,7 @@
       <argument type="service" id="monolog.logger.security" on-invalid="null"/>
       <call method="setOptions">
         <argument type="collection">
-          <argument key="login_path">/</argument>
+          <argument key="login_path">app_login</argument>
           <argument key="failure_path">null</argument>
           <argument key="failure_forward">false</argument>
           <argument key="failure_path_parameter">_failure_path</argument>
@@ -4222,7 +4249,7 @@
       <argument type="service" id="security.authentication.success_handler.main.form_login"/>
       <argument type="service" id="security.authentication.failure_handler.main.form_login"/>
       <argument type="collection">
-        <argument key="check_path">/</argument>
+        <argument key="check_path">app_login</argument>
         <argument key="use_forward">false</argument>
         <argument key="require_previous_session">false</argument>
         <argument key="username_parameter">_username</argument>
@@ -4238,7 +4265,7 @@
     <service id="security.authentication.form_entry_point.main" class="Symfony\Component\Security\Http\EntryPoint\FormAuthenticationEntryPoint" public="false">
       <argument type="service" id="http_kernel"/>
       <argument type="service" id="security.http_utils"/>
-      <argument>/</argument>
+      <argument>app_login</argument>
       <argument>false</argument>
     </service>
     <service id="security.authentication.listener.basic.main" class="Symfony\Component\Security\Http\Firewall\BasicAuthenticationListener" public="false">
@@ -6073,6 +6100,10 @@
     <service id=".abstract.instanceof.App\Repository\UserRepository" class="App\Repository\UserRepository" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\UserReviewRepository" class="App\Repository\UserReviewRepository" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\UserReviewRepository" class="App\Repository\UserReviewRepository" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\EventDispatcher\EventSubscriberInterface.0.App\Subscribers\LocaleSubscriber" class="App\Subscribers\LocaleSubscriber" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Subscribers\LocaleSubscriber" class="App\Subscribers\LocaleSubscriber" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Symfony\Component\EventDispatcher\EventSubscriberInterface.0.App\Subscribers\UserLocaleSubscriber" class="App\Subscribers\UserLocaleSubscriber" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Subscribers\UserLocaleSubscriber" class="App\Subscribers\UserLocaleSubscriber" autowire="true" autoconfigure="true" abstract="true"/>
     <service id="maker.auto_command.make_sonata_admin" class="Symfony\Bundle\MakerBundle\Command\MakerCommand" public="false">
       <tag name="console.command" command="make:sonata:admin"/>
       <argument type="service" id="sonata.admin.maker"/>

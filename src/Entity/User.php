@@ -5,13 +5,14 @@ namespace App\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Security\Core\User\EquatableInterface;
 
 
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\UserRepository")
  */
-class User implements UserInterface
+class User implements UserInterface, \Serializable, EquatableInterface
 {
     /**
      * @ORM\Id()
@@ -50,6 +51,10 @@ class User implements UserInterface
      * @ORM\Column(name="role", length=255)
      */
     private $role = 'ROLE_USER' ;
+/**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $locale;
 
 
 
@@ -65,28 +70,30 @@ class User implements UserInterface
                 return array('ROLE_USER');
             }
 
-//            public function serialize()
-//            {
-//                return serialize(array(
-//                    $this->id,
-//                    $this->username,
-//                    $this->password,
-//                    // см. раздел о соли ниже
-//                    // $this->salt,
-//                ));
-//            }
-//
-//            /** @see \Serializable::unserialize() */
-//            public function unserialize($serialized)
-//            {
-//                list (
-//                    $this->id,
-//                    $this->username,
-//                    $this->password,
-//                    // см. раздел о соли ниже
-//                    // $this->salt
-//                    ) = unserialize($serialized);
-//            }
+            public function serialize()
+            {
+                return serialize(array(
+                    $this->id,
+                    $this->username,
+                    $this->password,
+                    // см. раздел о соли ниже
+                    // $this->salt,
+                    $this->locale,
+                ));
+            }
+
+            /** @see \Serializable::unserialize() */
+            public function unserialize($serialized)
+            {
+                list (
+                    $this->id,
+                    $this->username,
+                    $this->password,
+                    // см. раздел о соли ниже
+                    // $this->salt
+                    $this->locale,
+                    ) = unserialize($serialized);
+            }
 
 
     public function getId(): ?int
@@ -156,4 +163,40 @@ class User implements UserInterface
     {
         // TODO: Implement eraseCredentials() method.
     }
+
+    public function getRole(): ?string
+    {
+        return $this->role;
+    }
+
+    public function setRole(string $role): self
+    {
+        $this->role = $role;
+
+        return $this;
+    }
+
+    public function getLocale(): ?string
+    {
+        return $this->locale;
+    }
+
+    public function setLocale(string $locale): self
+    {
+        $this->locale = $locale;
+
+        return $this;
+    }
+
+    public function isEqualTo(UserInterface $user)
+    {
+        if ($user instanceof self)
+        {
+            if ($user->getLocale() != $this->locale) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 }

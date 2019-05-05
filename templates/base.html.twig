@@ -24,6 +24,8 @@
 <body class="is-preload">
 <header id="header">
     <a class="logo" href="{{ path('app_homepage') }}">{% trans  %}Guest book{% endtrans %}</a>
+
+
     <nav>
         <a href="#menu">{% trans  %}Menu{% endtrans %}</a>
     </nav>
@@ -34,10 +36,15 @@
         <li><a href="{{ path('app_homepage')}}">{% trans  %}Home{% endtrans %}</a></li>
        <li><a href="{{ path('app_yop') }}">{% trans  %}Reviews{% endtrans %}</a></li>
         <li><a href="{{ path('user_review') }}">{% trans  %}Leave review{% endtrans %}</a></li>
+
+        {% if is_granted('IS_AUTHENTICATED_REMEMBERED')  %}
+        <li><a href="{{ path('app_logout') }}">{% trans  %}Logout{% endtrans %}</a></li>
+        <li><a href="{{ path('/lang') }}">{% trans  %}Language{% endtrans %}</a></li>
+
+        {% else %}
         <li><a href="{{ path('user_registration') }}">{% trans  %}Sign up{% endtrans %}</a></li>
         <li><a href="{{ path('app_login') }}">{% trans  %}Sign in{% endtrans %}</a></li>
-        <li><a href="{{ path('app_logout') }}">{% trans  %}Logout{% endtrans %}</a></li>
-
+        {% endif %}
 
     </ul>
 </nav>

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="en" target-language="ua" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="oStiIbZ" resname="Guest book">
+        <source>Guest book</source>
+        <target>Гостьова книга</target>
+      </trans-unit>
+      <trans-unit id="DiImtSN" resname="Welcome">
+        <source>Welcome</source>
+        <target>Ласкаво просимо</target>
+      </trans-unit>
+      <trans-unit id="ma9mBv_" resname="Menu">
+        <source>Menu</source>
+        <target>Меню</target>
+      </trans-unit>
+      <trans-unit id="OnhpU4i" resname="Home">
+        <source>Home</source>
+        <target>Домашня сторінка</target>
+      </trans-unit>
+      <trans-unit id="hMt4cbd" resname="Reviews">
+        <source>Reviews</source>
+        <target>Відгуки</target>
+      </trans-unit>
+      <trans-unit id="RpJMH25" resname="Leave review">
+        <source>Leave review</source>
+        <target>Залигити відгук</target>
+      </trans-unit>
+      <trans-unit id="XiuOllA" resname="Sign up">
+        <source>Sign up</source>
+        <target>Зареєструватись</target>
+      </trans-unit>
+      <trans-unit id="v9QCsvb" resname="Sign in">
+        <source>Sign in</source>
+        <target>Увійти</target>
+      </trans-unit>
+      <trans-unit id="0FJ_Sz1" resname="Logout">
+        <source>Logout</source>
+        <target>Вийти</target>
+      </trans-unit>
+      <trans-unit id="3NHVIj9" resname="Name">
+        <source>Name</source>
+        <target>Ім'я</target>
+      </trans-unit>
+      <trans-unit id="JVDZYuU" resname="E-mail">
+        <source>E-mail</source>
+        <target>Ел. адреса</target>
+      </trans-unit>
+      <trans-unit id="r.B2alK" resname="Review">
+        <source>Review</source>
+        <target>Відгук</target>
+      </trans-unit>
+      <trans-unit id="mcQKtAW" resname="Date">
+        <source>Date</source>
+        <target>Дата</target>
+      </trans-unit>
+      <trans-unit id="47ienTP" resname="Username">
+        <source>Username</source>
+        <target>Ім'я користувача</target>
+      </trans-unit>
+      <trans-unit id="96KVpv8" resname="E mail">
+        <source>E mail</source>
+        <target>Ел. адреса</target>
+      </trans-unit>
+      <trans-unit id="ic3cN_N" resname="User homepage">
+        <source>User homepage</source>
+        <target>Домашня сторінка</target>
+      </trans-unit>
+      <trans-unit id="yiUxZ4w" resname="User review">
+        <source>User review</source>
+        <target>Ваш відгук</target>
+      </trans-unit>
+      <trans-unit id="9vRoj.I" resname="Send">
+        <source>Send</source>
+        <target>Надіслати</target>
+      </trans-unit>
+      <trans-unit id="lpzL089" resname="Email">
+        <source>Email</source>
+        <target>Ел. адреса</target>
+      </trans-unit>
+      <trans-unit id="588_9PF" resname="Password">
+        <source>Password</source>
+        <target>Пароль</target>
+      </trans-unit>
+      <trans-unit id="Hkmh4Tp" resname="Repeat Password">
+        <source>Repeat Password</source>
+        <target>Повторіть пароль</target>
+      </trans-unit>
+      <trans-unit id="u3I07BJ" resname="Register">
+        <source>Register</source>
+        <target>Зареєструватися</target>
+      </trans-unit>
+      <trans-unit id="dDUw20Q" resname="Please sign in">
+        <source>Please sign in</source>
+        <target>Будьласка авторизуйтеся</target>
+      </trans-unit>
+      <trans-unit id="s0N37UN" resname="Welcome to Guest book">
+        <source>Welcome to Guest book</source>
+        <target>Ласкаво просимо до Гостьової книги</target>
+      </trans-unit>
+      <trans-unit id="U2RiSIn" resname="Give us a review and we will become even better">
+        <source>Give us a review and we will become even better</source>
+        <target>Шалиште нам відгук і ми нодмінно станемо ще кращими</target>
+      </trans-unit>
+      <trans-unit id="f4PQzmP" resname="Please be logged in automatically to post changes to the language. Thank you">
+        <source>Please be logged in automatically to post changes to the language. Thank you</source>
+        <target>Будь ласка, поворно авторизуйтесь пісял зміни мови. Дякую вам</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>
