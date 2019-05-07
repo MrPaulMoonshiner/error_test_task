@@ -4,8 +4,11 @@
 /.env.local.php
 /.env.*.local
 /public/bundles/
-/var/
-/vendor/
+var
+vendor
+.idea/
+freetpl
+
 ###< symfony/framework-bundle ###
 
 ###> symfony/web-server-bundle ###
