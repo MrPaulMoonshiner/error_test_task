@@ -42,6 +42,8 @@
         <li><a href="{{ path('/lang') }}">{% trans  %}Language{% endtrans %}</a></li>
 
         {% else %}
+
+
         <li><a href="{{ path('user_registration') }}">{% trans  %}Sign up{% endtrans %}</a></li>
         <li><a href="{{ path('app_login') }}">{% trans  %}Sign in{% endtrans %}</a></li>
         {% endif %}

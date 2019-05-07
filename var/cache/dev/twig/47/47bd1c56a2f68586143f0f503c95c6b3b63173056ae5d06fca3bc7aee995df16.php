@@ -112,34 +112,37 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
         ";
         } else {
             // line 45
-            echo "        <li><a href=\"";
+            echo "
+
+        <li><a href=\"";
+            // line 47
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("user_registration");
             echo "\">";
             echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Sign up", [], "messages");
             echo "</a></li>
         <li><a href=\"";
-            // line 46
+            // line 48
             echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("app_login");
             echo "\">";
             echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Sign in", [], "messages");
             echo "</a></li>
         ";
         }
-        // line 48
+        // line 50
         echo "
     </ul>
 </nav>
 ";
-        // line 51
+        // line 53
         $this->displayBlock('bodyHead', $context, $blocks);
-        // line 60
+        // line 62
         echo "
 ";
-        // line 61
+        // line 63
         $this->displayBlock('body', $context, $blocks);
-        // line 62
+        // line 64
         $this->displayBlock('endBodyHead', $context, $blocks);
-        // line 66
+        // line 68
         echo "<footer id=\"footer\">
     <div class=\"inner\">
         <div class=\"content\">
@@ -174,23 +177,23 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 
 <!-- Scripts -->
 <script src=\"";
-        // line 99
+        // line 101
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/jquery.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 100
+        // line 102
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/browser.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 101
+        // line 103
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/breakpoints.min.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 102
+        // line 104
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/util.js"), "html", null, true);
         echo "\"></script>
 <script src=\"";
-        // line 103
+        // line 105
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/main.js"), "html", null, true);
         echo "\"></script>
 
@@ -282,7 +285,7 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 
     }
 
-    // line 51
+    // line 53
     public function block_bodyHead($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -291,16 +294,16 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "bodyHead"));
 
-        // line 52
+        // line 54
         echo "<section class=\"wrapper\">
     <div class=\"inner\">
         <header class=\"special\">
             <h2>";
-        // line 55
+        // line 57
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Welcome to Guest book", [], "messages");
         echo "</h2>
             <p>";
-        // line 56
+        // line 58
         echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Give us a review and we will become even better", [], "messages");
         echo "!</p>
         </header>
@@ -314,7 +317,7 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 
     }
 
-    // line 61
+    // line 63
     public function block_body($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -331,7 +334,7 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 
     }
 
-    // line 62
+    // line 64
     public function block_endBodyHead($context, array $blocks = [])
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -340,7 +343,7 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "endBodyHead"));
 
-        // line 63
+        // line 65
         echo "    </div>
     </section>
 ";
@@ -364,7 +367,7 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
 
     public function getDebugInfo()
     {
-        return array (  344 => 63,  335 => 62,  318 => 61,  304 => 56,  300 => 55,  295 => 52,  286 => 51,  272 => 30,  263 => 26,  258 => 23,  249 => 22,  235 => 16,  226 => 15,  208 => 8,  194 => 103,  190 => 102,  186 => 101,  182 => 100,  178 => 99,  143 => 66,  141 => 62,  139 => 61,  136 => 60,  134 => 51,  129 => 48,  122 => 46,  115 => 45,  107 => 42,  100 => 41,  98 => 40,  91 => 38,  85 => 37,  79 => 36,  75 => 34,  73 => 22,  68 => 19,  66 => 15,  56 => 8,  47 => 1,);
+        return array (  347 => 65,  338 => 64,  321 => 63,  307 => 58,  303 => 57,  298 => 54,  289 => 53,  275 => 30,  266 => 26,  261 => 23,  252 => 22,  238 => 16,  229 => 15,  211 => 8,  197 => 105,  193 => 104,  189 => 103,  185 => 102,  181 => 101,  146 => 68,  144 => 64,  142 => 63,  139 => 62,  137 => 53,  132 => 50,  125 => 48,  119 => 47,  115 => 45,  107 => 42,  100 => 41,  98 => 40,  91 => 38,  85 => 37,  79 => 36,  75 => 34,  73 => 22,  68 => 19,  66 => 15,  56 => 8,  47 => 1,);
     }
 
     public function getSourceContext()
@@ -413,6 +416,8 @@ class __TwigTemplate_9a3143643a1eec23c8cbb4bed22effda38bdec734ae866111fce961a1b7
         <li><a href=\"{{ path('/lang') }}\">{% trans  %}Language{% endtrans %}</a></li>
 
         {% else %}
+
+
         <li><a href=\"{{ path('user_registration') }}\">{% trans  %}Sign up{% endtrans %}</a></li>
         <li><a href=\"{{ path('app_login') }}\">{% trans  %}Sign in{% endtrans %}</a></li>
         {% endif %}

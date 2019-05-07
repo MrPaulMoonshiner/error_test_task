@@ -10,20 +10,30 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-final class CategoryAdmin extends  AbstractAdmin
+class UserAdmin extends AbstractAdmin
 {
+    protected  $baseRouteName = "user_admin";
+    protected  $baseRoutePattern = "user";
     protected function configureFormFields(FormMapper $formMapper)
     {
-        $formMapper->add('name', TextType::class);
+        $formMapper
+            ->add('username', TextType::class)
+            ->add('email', TextType::class);
+
+
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('name');
+        $datagridMapper->add('username')
+            ->add('email');
+
     }
 
     protected function configureListFields(ListMapper $listMapper)
     {
-        $listMapper->addIdentifier('name');
+        $listMapper
+            ->addIdentifier('username')
+            ->addIdentifier('email');
     }
 }

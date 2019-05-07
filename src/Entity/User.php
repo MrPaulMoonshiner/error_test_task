@@ -48,9 +48,10 @@ class User implements UserInterface, \Serializable, EquatableInterface
     private $email;
 
     /**
-     * @ORM\Column(name="role", length=255)
+     *
+     * @ORM\Column(name="role", type="simple_array")
      */
-    private $role = 'ROLE_USER' ;
+    private $roles = [] ;
 /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
@@ -67,7 +68,7 @@ class User implements UserInterface, \Serializable, EquatableInterface
 
             public function getRoles()
             {
-                return array('ROLE_USER');
+                return $this->roles;
             }
 
             public function serialize()
@@ -76,6 +77,7 @@ class User implements UserInterface, \Serializable, EquatableInterface
                     $this->id,
                     $this->username,
                     $this->password,
+
                     // см. раздел о соли ниже
                     // $this->salt,
                     $this->locale,
@@ -129,6 +131,7 @@ class User implements UserInterface, \Serializable, EquatableInterface
     {
         return $this->email;
     }
+//            -
 
     public function setEmail(string $email): self
     {
@@ -164,14 +167,9 @@ class User implements UserInterface, \Serializable, EquatableInterface
         // TODO: Implement eraseCredentials() method.
     }
 
-    public function getRole(): ?string
+    public function setRoles(array $roles): self
     {
-        return $this->role;
-    }
-
-    public function setRole(string $role): self
-    {
-        $this->role = $role;
+        $this->roles = $roles;
 
         return $this;
     }
@@ -198,5 +196,6 @@ class User implements UserInterface, \Serializable, EquatableInterface
         }
         return true;
     }
+
 
 }

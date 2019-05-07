@@ -32,6 +32,7 @@ class RegistrationController extends AbstractController
 
             // 4) сохраните Пользователя!
             $em = $this->getDoctrine()->getManager();
+            $user->setRoles(['ROLE_USER']);
             $em->persist($user);
             $em->flush();
 

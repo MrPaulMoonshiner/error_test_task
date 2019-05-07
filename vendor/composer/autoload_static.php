@@ -83,6 +83,7 @@ class ComposerStaticInitca83c8ccf3d6fcd188046504bdabc041
             'Sonata\\Form\\' => 12,
             'Sonata\\Exporter\\' => 16,
             'Sonata\\Doctrine\\' => 16,
+            'Sonata\\DoctrineORMAdminBundle\\' => 30,
             'Sonata\\DatagridBundle\\' => 22,
             'Sonata\\CoreBundle\\' => 18,
             'Sonata\\Cache\\' => 13,
@@ -110,6 +111,10 @@ class ComposerStaticInitca83c8ccf3d6fcd188046504bdabc041
             'Knp\\Menu\\' => 9,
             'Knp\\Bundle\\PaginatorBundle\\' => 27,
             'Knp\\Bundle\\MenuBundle\\' => 22,
+        ),
+        'F' => 
+        array (
+            'FOS\\UserBundle\\' => 15,
         ),
         'E' => 
         array (
@@ -371,6 +376,10 @@ class ComposerStaticInitca83c8ccf3d6fcd188046504bdabc041
         array (
             0 => __DIR__ . '/..' . '/sonata-project/doctrine-extensions/src',
         ),
+        'Sonata\\DoctrineORMAdminBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/sonata-project/doctrine-orm-admin-bundle/src',
+        ),
         'Sonata\\DatagridBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/sonata-project/datagrid-bundle/src',
@@ -442,6 +451,10 @@ class ComposerStaticInitca83c8ccf3d6fcd188046504bdabc041
         'Knp\\Bundle\\MenuBundle\\' => 
         array (
             0 => __DIR__ . '/..' . '/knplabs/knp-menu-bundle/src',
+        ),
+        'FOS\\UserBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/friendsofsymfony/user-bundle',
         ),
         'EasyCorp\\EasyLog\\' => 
         array (

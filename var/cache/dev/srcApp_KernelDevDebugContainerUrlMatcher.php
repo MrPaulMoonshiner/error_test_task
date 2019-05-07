@@ -34,6 +34,14 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
             '/admin/core/set-object-field-value' => [[['_route' => 'sonata_admin_set_object_field_value', '_controller' => 'sonata.admin.action.set_object_field_value'], null, null, null, false, false, null]],
             '/admin/search' => [[['_route' => 'sonata_admin_search', '_controller' => 'Sonata\\AdminBundle\\Action\\SearchAction'], null, null, null, false, false, null]],
             '/admin/core/get-autocomplete-items' => [[['_route' => 'sonata_admin_retrieve_autocomplete_items', '_controller' => 'sonata.admin.action.retrieve_autocomplete_items'], null, null, null, false, false, null]],
+            '/admin/user/list' => [[['_route' => 'user_admin_list', '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::listAction', '_sonata_admin' => 'admin.user', '_sonata_name' => 'user_admin_list'], null, null, null, false, false, null]],
+            '/admin/user/create' => [[['_route' => 'user_admin_create', '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::createAction', '_sonata_admin' => 'admin.user', '_sonata_name' => 'user_admin_create'], null, null, null, false, false, null]],
+            '/admin/user/batch' => [[['_route' => 'user_admin_batch', '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::batchAction', '_sonata_admin' => 'admin.user', '_sonata_name' => 'user_admin_batch'], null, null, null, false, false, null]],
+            '/admin/user/export' => [[['_route' => 'user_admin_export', '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::exportAction', '_sonata_admin' => 'admin.user', '_sonata_name' => 'user_admin_export'], null, null, null, false, false, null]],
+            '/admin/reviews/list' => [[['_route' => 'user_reviews_list', '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::listAction', '_sonata_admin' => 'admin.review', '_sonata_name' => 'user_reviews_list'], null, null, null, false, false, null]],
+            '/admin/reviews/create' => [[['_route' => 'user_reviews_create', '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::createAction', '_sonata_admin' => 'admin.review', '_sonata_name' => 'user_reviews_create'], null, null, null, false, false, null]],
+            '/admin/reviews/batch' => [[['_route' => 'user_reviews_batch', '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::batchAction', '_sonata_admin' => 'admin.review', '_sonata_name' => 'user_reviews_batch'], null, null, null, false, false, null]],
+            '/admin/reviews/export' => [[['_route' => 'user_reviews_export', '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::exportAction', '_sonata_admin' => 'admin.review', '_sonata_name' => 'user_reviews_export'], null, null, null, false, false, null]],
         ];
         $this->regexpList = [
             0 => '{^(?'
@@ -52,8 +60,20 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
                             .'|(*:159)'
                         .')'
                     .')'
-                    .'|/admin/core/get\\-short\\-object\\-description(?:\\.(html|json))?(*:230)'
-                    .'|/(en|fr|de)(*:249)'
+                    .'|/admin/(?'
+                        .'|core/get\\-short\\-object\\-description(?:\\.(html|json))?(*:233)'
+                        .'|user/([^/]++)/(?'
+                            .'|edit(*:262)'
+                            .'|delete(*:276)'
+                            .'|show(*:288)'
+                        .')'
+                        .'|reviews/([^/]++)/(?'
+                            .'|edit(*:321)'
+                            .'|delete(*:335)'
+                            .'|show(*:347)'
+                        .')'
+                    .')'
+                    .'|/(en|fr|de)(*:368)'
                 .')/?$}sDu',
         ];
         $this->dynamicRoutes = [
@@ -64,8 +84,14 @@ class srcApp_KernelDevDebugContainerUrlMatcher extends Symfony\Bundle\FrameworkB
             136 => [[['_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'], ['token'], null, null, false, false, null]],
             149 => [[['_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'], ['token'], null, null, false, false, null]],
             159 => [[['_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'], ['token'], null, null, false, true, null]],
-            230 => [[['_route' => 'sonata_admin_short_object_information', '_controller' => 'sonata.admin.action.get_short_object_description', '_format' => 'html'], ['_format'], null, null, false, true, null]],
-            249 => [[['_route' => 'article', '_controller' => 'App\\Controller\\ArticleController::changeLocale'], ['_locale'], null, null, true, true, null]],
+            233 => [[['_route' => 'sonata_admin_short_object_information', '_controller' => 'sonata.admin.action.get_short_object_description', '_format' => 'html'], ['_format'], null, null, false, true, null]],
+            262 => [[['_route' => 'user_admin_edit', '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::editAction', '_sonata_admin' => 'admin.user', '_sonata_name' => 'user_admin_edit'], ['id'], null, null, false, false, null]],
+            276 => [[['_route' => 'user_admin_delete', '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::deleteAction', '_sonata_admin' => 'admin.user', '_sonata_name' => 'user_admin_delete'], ['id'], null, null, false, false, null]],
+            288 => [[['_route' => 'user_admin_show', '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::showAction', '_sonata_admin' => 'admin.user', '_sonata_name' => 'user_admin_show'], ['id'], null, null, false, false, null]],
+            321 => [[['_route' => 'user_reviews_edit', '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::editAction', '_sonata_admin' => 'admin.review', '_sonata_name' => 'user_reviews_edit'], ['id'], null, null, false, false, null]],
+            335 => [[['_route' => 'user_reviews_delete', '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::deleteAction', '_sonata_admin' => 'admin.review', '_sonata_name' => 'user_reviews_delete'], ['id'], null, null, false, false, null]],
+            347 => [[['_route' => 'user_reviews_show', '_controller' => 'Sonata\\AdminBundle\\Controller\\CRUDController::showAction', '_sonata_admin' => 'admin.review', '_sonata_name' => 'user_reviews_show'], ['id'], null, null, false, false, null]],
+            368 => [[['_route' => 'article', '_controller' => 'App\\Controller\\ArticleController::changeLocale'], ['_locale'], null, null, true, true, null]],
         ];
     }
 }
