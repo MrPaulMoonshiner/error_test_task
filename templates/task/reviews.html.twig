@@ -6,10 +6,10 @@
             <table id="table-id" class="table">
                 <thead>
                 <tr>
-                    <th>{% trans  %}Name{% endtrans %}</th>
-                    <th>{% trans  %}E-mail{% endtrans %}</th>
-                    <th>{% trans  %}Review{% endtrans %}</th>
-                    <th>{% trans  %}Date{% endtrans %}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Username'|trans, 'username') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'E mail'|trans, 'e_mail') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Review'|trans, 'user_review') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Date'|trans, 'pub_date') }}</th>
 
                 </tr>
                 </thead>

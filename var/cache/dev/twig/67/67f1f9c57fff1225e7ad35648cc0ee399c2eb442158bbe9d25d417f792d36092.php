@@ -69,19 +69,19 @@ class __TwigTemplate_4bb6a3266a9c457c12655750e13550ce79ec69a004b5810f253d764029b
                 <tr>
                     <th>";
         // line 9
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Name", [], "messages");
+        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->sortable($this->env, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new RuntimeError('Variable "pagination" does not exist.', 9, $this->source); })()), $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Username"), "username");
         echo "</th>
                     <th>";
         // line 10
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("E-mail", [], "messages");
+        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->sortable($this->env, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new RuntimeError('Variable "pagination" does not exist.', 10, $this->source); })()), $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("E mail"), "e_mail");
         echo "</th>
                     <th>";
         // line 11
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Review", [], "messages");
+        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->sortable($this->env, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new RuntimeError('Variable "pagination" does not exist.', 11, $this->source); })()), $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Review"), "user_review");
         echo "</th>
                     <th>";
         // line 12
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\TranslationExtension')->trans("Date", [], "messages");
+        echo $this->extensions['Knp\Bundle\PaginatorBundle\Twig\Extension\PaginationExtension']->sortable($this->env, (isset($context["pagination"]) || array_key_exists("pagination", $context) ? $context["pagination"] : (function () { throw new RuntimeError('Variable "pagination" does not exist.', 12, $this->source); })()), $this->extensions['Symfony\Bridge\Twig\Extension\TranslationExtension']->trans("Date"), "pub_date");
         echo "</th>
 
                 </tr>
@@ -169,10 +169,10 @@ class __TwigTemplate_4bb6a3266a9c457c12655750e13550ce79ec69a004b5810f253d764029b
             <table id=\"table-id\" class=\"table\">
                 <thead>
                 <tr>
-                    <th>{% trans  %}Name{% endtrans %}</th>
-                    <th>{% trans  %}E-mail{% endtrans %}</th>
-                    <th>{% trans  %}Review{% endtrans %}</th>
-                    <th>{% trans  %}Date{% endtrans %}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Username'|trans, 'username') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'E mail'|trans, 'e_mail') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Review'|trans, 'user_review') }}</th>
+                    <th>{{ knp_pagination_sortable(pagination, 'Date'|trans, 'pub_date') }}</th>
 
                 </tr>
                 </thead>

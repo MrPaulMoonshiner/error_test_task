@@ -39,7 +39,7 @@ class UserReview
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Assert\NotBlank()user_ip
+     * @Assert\NotBlank()
      */
     private $user_review;
 
