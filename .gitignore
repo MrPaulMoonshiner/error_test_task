@@ -4,7 +4,10 @@
 /.env.local.php
 /.env.*.local
 /public/bundles/
-/var/
+var
+all
+freetpl
+bin
 vendor
 .idea/*
 ###< symfony/framework-bundle ###
