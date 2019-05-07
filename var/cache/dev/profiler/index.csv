@@ -494,3 +494,5 @@ edb2c7,127.0.0.1,GET,http://127.0.0.1:8000/bundles/sonatacore/vendor/select2/sel
 be8f21,127.0.0.1,GET,http://127.0.0.1:8000/images/bg.jpg,1557220965,,404
 87dcd8,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1557220965,5324eb,200
 5324eb,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1557220965,,404
+9f3042,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1557238553,0cef95,200
+0cef95,127.0.0.1,GET,http://127.0.0.1:8000/favicon.ico,1557238554,,404
