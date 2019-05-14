@@ -4,7 +4,7 @@
 
 1. Завантажте файли, напишіть в командній строці: git clone https://github.com/MrPaulMoonshiner/Test_Task.git
 
-2. В корені проекту виконайте команду composer update
+2. В корені проекту виконайте команду composer update або composer install
 
 3. Налаштуйте конфігурацію БД в файлі ".evn"
 
@@ -14,11 +14,17 @@
 
     3.3 Задати ім'я БД
 
-4. Виконайте команду   php bin/console doctrine:schema:create   для створення БД
+4. Виконайте команду   php bin/console doctrine:database:create     для створення БД
 
-5. Виконайте команду   php bin/console doctrine:fixtures:load   для заповнення БД тестовою інформацією
+5. Виконайте команду   php bin/console doctrine:schema:create       для створення таблиць БД
 
-6. Очистіть кеш.
+6. Виконайте команду   php bin/console doctrine:fixtures:load       для заповнення БД тестовою інформацією
+
+    6.1 Адмінісратор:
+            Логін:  MrAdmin
+            Пароль: 123456
+
+    6.2 35 шаблонних відгуків користувачів.
 
 7. Проект готовий до використання.
 
