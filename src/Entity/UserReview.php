@@ -38,7 +38,7 @@ class UserReview
     private $user_homepage;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="text", length=25500)
      * @Assert\NotBlank()
      */
     private $user_review;
