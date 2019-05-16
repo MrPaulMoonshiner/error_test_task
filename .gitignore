@@ -7,7 +7,9 @@
 var
 all
 freetpl
-*.png
+images/**/*.png
+#6295d3fc6c7110a74f2ffa1dbbe3b877.png
+#b0fb4d311d2ecedd29160b82b2f8c982.png
 vendor
 .idea/*
 ###< symfony/framework-bundle ###
