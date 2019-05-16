@@ -6,6 +6,7 @@ namespace App\Form;
 use App\Entity\UserReview;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -25,7 +26,7 @@ class UserReviewForm extends AbstractType
            ->add('e_mail', EmailType::class)
            ->add('user_homepage', TextType::class)
            ->add('user_review', TextType::class)
-//           ->add('pub_date',HiddenType::class)
+           ->add('brochure', FileType::class, array('label' => 'Choose picture'))
            ->add('user_ip',HiddenType::class, array('data' => $options['ip']))
            ->add('user_browser',HiddenType::class,array('data' => $options['browser']));
     }

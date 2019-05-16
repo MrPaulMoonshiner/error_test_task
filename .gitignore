@@ -7,7 +7,7 @@
 var
 all
 freetpl
-
+*.png
 vendor
 .idea/*
 ###< symfony/framework-bundle ###

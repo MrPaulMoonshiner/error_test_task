@@ -27,15 +27,22 @@ class UserReviewController extends AbstractController
         $form = $this->createForm(UserReviewForm::class, $review, ['ip'=>$ip ,'browser'=>$browser]);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $review->getBrochure();
 
+            $fileName = $this->generateUniqueFileName().'.'.$file->guessExtension();
+            // перемещает файл в каталог, где хранятся брошюры
+            $file->move(
+                $this->getParameter('brochures_directory'),
+                $fileName
+            );
 
-
+            $review->setBrochure($fileName);
             $em = $this->getDoctrine()->getManager();
             $em->persist($review);
             $em->flush();
 
 
-            return $this->redirectToRoute('user_registration');
+            return $this->redirectToRoute('app_homepage');
 
         $em = $this->getDoctrine()->getManager();
         $em->persist($review);
@@ -52,6 +59,16 @@ class UserReviewController extends AbstractController
 
         )
     );
+    }
+
+    /**
+     * @return string
+     */
+    private function generateUniqueFileName()
+    {
+        // md5() уменьшает схожесть имён файлов, сгенерированных
+        // uniqid(), которые основанный на временных отметках
+        return md5(uniqid());
     }
 
 }

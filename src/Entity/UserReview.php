@@ -58,6 +58,15 @@ class UserReview
      */
     private $user_browser;
 
+
+    /**
+     * @ORM\Column(type="string")
+     *
+     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
+     * @Assert\File(mimeTypes={"image/jpeg","image/gif","image/png"})
+     */
+    private $brochure;
+
 //    public function __construct()
 //    {
 //        $this->pub_date= new DateTime();
@@ -148,6 +157,18 @@ class UserReview
     public function setUserBrowser(string $user_browser): self
     {
         $this->user_browser = $user_browser;
+
+        return $this;
+    }
+
+    public function getBrochure()
+    {
+        return $this->brochure;
+    }
+
+    public function setBrochure($brochure)
+    {
+        $this->brochure = $brochure;
 
         return $this;
     }
