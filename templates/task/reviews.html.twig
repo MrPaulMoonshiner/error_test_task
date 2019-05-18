@@ -17,20 +17,38 @@
 
 
                 {% for row in pagination %}
-                <tbody>
-                <tr>
-                    <td>{{ row.username }}</td>
+                    {% if row.active != 0 %}
+                        <tbody>
+                        <tr>
+                            <td>{{ row.username }}</td>
 
-                    <td>{{ row.eMail }}</td>
-                    <td>{{ row.userReview }}</td>
-                    <td><img src="/images/{{ row.brochure }}"></td>
-                    <td>{{ row.pubDate|date('H:i:s y/m/d') }}</td>
+                            <td>{{ row.eMail }}</td>
+                            <td>{{ row.userReview }}</td>
+                            <td><img src="/images/{{ row.brochure }}"></td>
+                            <td>{{ row.pubDate|date('H:i:s y/m/d') }}</td>
 
-                </tr>
+                        </tr>
 
-                </tbody>
+                        </tbody>
+                    {% else %}
+                        <tbody>
+                        <tr>
+                            <td>This message</td>
+
+                            <td> is waiting for confirmation</td>
+                            <td>by the moderator</td>
+                            <td><img src="/images/c1e207fb1694e813210125debb37097f.png"></td>
+                            <td>{{ row.pubDate|date('H:i:s y/m/d') }}</td>
+
+                        </tr>
+
+                        </tbody>
+                    {% endif %}
                 {% endfor %}
             </table>
+
+
+
 
 <div class="navigate">
     {{ knp_pagination_render(pagination) }}

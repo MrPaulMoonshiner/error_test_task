@@ -61,11 +61,14 @@ class UserReview
 
     /**
      * @ORM\Column(type="string")
-     *
-     * @Assert\NotBlank(message="Please, upload the product brochure as a PDF file.")
      * @Assert\File(mimeTypes={"image/jpeg","image/gif","image/png"})
      */
     private $brochure;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $active = 0;
 
 //    public function __construct()
 //    {
@@ -173,4 +176,16 @@ class UserReview
         return $this;
     }
 
+
+    public function getActive(): ?bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(bool $active): self
+    {
+        $this->active = $active;
+
+        return $this;
+    }
 }

@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class UserReviewsAdmin extends AbstractAdmin
@@ -22,7 +23,12 @@ class UserReviewsAdmin extends AbstractAdmin
             ->add('user_homepage', TextType::class)
             ->add('user_review', TextType::class)
             ->add('user_ip', TextType::class)
-            ->add('user_browser', TextType::class);
+            ->add('user_browser', TextType::class)
+            ->add('active', CheckboxType::class,
+                [
+                    'label'    => 'Show',
+                    'required' => true,
+                ]);
 
 
     }
@@ -34,7 +40,8 @@ class UserReviewsAdmin extends AbstractAdmin
                         ->add('user_homepage')
                         ->add('user_review')
                         ->add('user_ip')
-                        ->add('user_browser');
+                        ->add('user_browser')
+                        ->add('active');
 
 
     }
@@ -47,6 +54,7 @@ class UserReviewsAdmin extends AbstractAdmin
                     ->addIdentifier('user_homepage')
                     ->addIdentifier('user_review')
                     ->addIdentifier('user_ip')
-                    ->addIdentifier('user_browser');
+                    ->addIdentifier('user_browser')
+                    ->addIdentifier('active');
     }
 }
