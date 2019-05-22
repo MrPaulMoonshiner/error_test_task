@@ -8,6 +8,7 @@ use Sonata\AdminBundle\Admin\AbstractAdmin;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Form\FormMapper;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
@@ -20,7 +21,15 @@ class UserAdmin extends AbstractAdmin
         $formMapper
             ->add('id', IntegerType::class)
             ->add('username', TextType::class)
-            ->add('email', TextType::class);
+            ->add('email', TextType::class)
+            ->add('active', CheckboxType::class,
+                [
+                    'label'    => 'Activate',
+                    'required' => true,
+                    'required' => false,
+
+                ])
+        ;
 
 
     }
@@ -30,7 +39,9 @@ class UserAdmin extends AbstractAdmin
         $datagridMapper
             ->add('id')
             ->add('username')
-            ->add('email');
+            ->add('email')
+            ->add('active')
+        ;
 
     }
 
@@ -39,6 +50,8 @@ class UserAdmin extends AbstractAdmin
         $listMapper
             ->addIdentifier('id')
             ->addIdentifier('username')
-            ->addIdentifier('email');
+            ->addIdentifier('email')
+            ->addIdentifier('active')
+        ;
     }
 }

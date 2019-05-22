@@ -28,7 +28,7 @@ class User implements UserInterface, \Serializable, EquatableInterface
     private $username;
 
     /**
-     * @Assert\NotBlank()
+     *
      * @Assert\Length(max=4096)
      */
     private $plainPassword;
@@ -42,7 +42,7 @@ class User implements UserInterface, \Serializable, EquatableInterface
     private $password;
 
     /**
-     * @Assert\NotBlank()
+     *
      * @ORM\Column(type="string", length=255)
      */
     private $email;
@@ -52,10 +52,15 @@ class User implements UserInterface, \Serializable, EquatableInterface
      * @ORM\Column(name="role", type="simple_array")
      */
     private $roles = [] ;
-/**
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $locale;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $active = 0;
 
 
 
@@ -66,36 +71,36 @@ class User implements UserInterface, \Serializable, EquatableInterface
 //                // $this->salt = md5(uniqid('', true));
 //            }
 
-            public function getRoles()
-            {
-                return $this->roles;
-            }
+    public function getRoles()
+    {
+        return $this->roles;
+    }
 
-            public function serialize()
-            {
-                return serialize(array(
-                    $this->id,
-                    $this->username,
-                    $this->password,
+    public function serialize()
+    {
+        return serialize(array(
+            $this->id,
+            $this->username,
+            $this->password,
 
-                    // см. раздел о соли ниже
-                    // $this->salt,
-                    $this->locale,
-                ));
-            }
+            // см. раздел о соли ниже
+            // $this->salt,
+            $this->locale,
+        ));
+    }
 
-            /** @see \Serializable::unserialize() */
-            public function unserialize($serialized)
-            {
-                list (
-                    $this->id,
-                    $this->username,
-                    $this->password,
-                    // см. раздел о соли ниже
-                    // $this->salt
-                    $this->locale,
-                    ) = unserialize($serialized);
-            }
+    /** @see \Serializable::unserialize() */
+    public function unserialize($serialized)
+    {
+        list (
+            $this->id,
+            $this->username,
+            $this->password,
+            // см. раздел о соли ниже
+            // $this->salt
+            $this->locale,
+            ) = unserialize($serialized);
+    }
 
 
     public function getId(): ?int
@@ -195,6 +200,18 @@ class User implements UserInterface, \Serializable, EquatableInterface
             }
         }
         return true;
+    }
+
+    public function getActive(): ?bool
+    {
+        return $this->active;
+    }
+
+    public function setActive(bool $active): self
+    {
+        $this->active = $active;
+
+        return $this;
     }
 
 
