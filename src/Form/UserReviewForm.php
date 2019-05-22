@@ -26,9 +26,13 @@ class UserReviewForm extends AbstractType
            ->add('e_mail', EmailType::class)
            ->add('user_homepage', TextType::class)
            ->add('user_review', TextType::class)
-           ->add('brochure', FileType::class, array('label' => 'Choose picture'))
+           ->add('brochure', FileType::class, array(   'label' => 'Choose picture',
+               'required'   => false,
+               'empty_data' => NULL,
+           ))
            ->add('user_ip',HiddenType::class, array('data' => $options['ip']))
-           ->add('user_browser',HiddenType::class,array('data' => $options['browser']));
+           ->add('user_browser',HiddenType::class,array('data' => $options['browser']))
+            ->add('user_id',HiddenType::class,array('data' => $options['user_id']));
     }
 
     public function configureOptions(OptionsResolver $resolver)
@@ -39,6 +43,8 @@ class UserReviewForm extends AbstractType
         ));
         $resolver->setRequired(['ip']);
         $resolver->setRequired(['browser']);
+        $resolver->setRequired(['user_id']);
+
 
 
     }

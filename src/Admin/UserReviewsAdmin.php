@@ -9,6 +9,7 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class UserReviewsAdmin extends AbstractAdmin
@@ -18,6 +19,7 @@ class UserReviewsAdmin extends AbstractAdmin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->add('id', IntegerType::class)
             ->add('username', TextType::class)
             ->add('e_mail', TextType::class)
             ->add('user_homepage', TextType::class)
@@ -28,20 +30,26 @@ class UserReviewsAdmin extends AbstractAdmin
                 [
                     'label'    => 'Show',
                     'required' => true,
-                ]);
+                    'required' => false,
+
+                ])
+            ->add('user_id', IntegerType::class);
 
 
     }
 
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
-        $datagridMapper->add('username')
+        $datagridMapper
+                        ->add('id')
+                        ->add('username')
                         ->add('e_mail')
                         ->add('user_homepage')
                         ->add('user_review')
                         ->add('user_ip')
                         ->add('user_browser')
-                        ->add('active');
+                        ->add('active')
+                        ->add('user_id');
 
 
     }
@@ -49,12 +57,14 @@ class UserReviewsAdmin extends AbstractAdmin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+                    ->addIdentifier('id')
                     ->addIdentifier('username')
                     ->addIdentifier('e_mail')
                     ->addIdentifier('user_homepage')
                     ->addIdentifier('user_review')
                     ->addIdentifier('user_ip')
                     ->addIdentifier('user_browser')
-                    ->addIdentifier('active');
+                    ->addIdentifier('active')
+                    ->addIdentifier('user_id');
     }
 }

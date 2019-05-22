@@ -60,8 +60,7 @@ class UserReview
 
 
     /**
-     * @ORM\Column(type="string")
-     * @Assert\File(mimeTypes={"image/jpeg","image/gif","image/png"})
+     * @ORM\Column(type="string", nullable=true)
      */
     private $brochure;
 
@@ -69,6 +68,11 @@ class UserReview
      * @ORM\Column(type="boolean")
      */
     private $active = 0;
+
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $user_id;
 
 //    public function __construct()
 //    {
@@ -185,6 +189,18 @@ class UserReview
     public function setActive(bool $active): self
     {
         $this->active = $active;
+
+        return $this;
+    }
+
+    public function getUserId(): ?int
+    {
+        return $this->user_id;
+    }
+
+    public function setUserId(?int $user_id): self
+    {
+        $this->user_id = $user_id;
 
         return $this;
     }
