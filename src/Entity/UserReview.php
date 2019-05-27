@@ -74,6 +74,11 @@ class UserReview
      */
     private $user_id;
 
+
+
+
+
+
 //    public function __construct()
 //    {
 //        $this->pub_date= new DateTime();
@@ -204,4 +209,5 @@ class UserReview
 
         return $this;
     }
+
 }

@@ -25,7 +25,8 @@ class UserRegister extends AbstractType
                 'type' => PasswordType::class,
                 'first_options' => array('label' => 'Password'),
                 'second_options' => array('label' => 'Repeat Password'),
-            ));
+            ))
+            ;
     }
 
     public function configureOptions(OptionsResolver $resolver)

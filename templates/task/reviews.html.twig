@@ -9,7 +9,7 @@
                     <th>{{ knp_pagination_sortable(pagination, 'Username'|trans, 'username') }}</th>
                     <th>{{ knp_pagination_sortable(pagination, 'E mail'|trans, 'e_mail') }}</th>
                     <th>{{ knp_pagination_sortable(pagination, 'Review'|trans, 'user_review') }}</th>
-                    <th>Picture</th>
+                    <th>{% trans %}Picture{% endtrans %}</th>
                     <th>{{ knp_pagination_sortable(pagination, 'Date'|trans, 'pub_date') }}</th>
 
                 </tr>
@@ -24,7 +24,9 @@
 
                             <td>{{ row.eMail }}</td>
                             <td>{{ row.userReview }}</td>
+                            {% if row.brochure %}
                             <td><img src="/images/{{ row.brochure }}"></td>
+                            {% endif %}
                             <td>{{ row.pubDate|date('H:i:s y/m/d') }}</td>
 
                         </tr>

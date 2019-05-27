@@ -64,6 +64,9 @@ class User implements UserInterface, \Serializable, EquatableInterface
 
 
 
+
+
+
 //            public function __construct()
 //            {
 //                $this->isActive = true;
@@ -213,6 +216,5 @@ class User implements UserInterface, \Serializable, EquatableInterface
 
         return $this;
     }
-
 
 }

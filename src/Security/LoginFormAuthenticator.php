@@ -65,14 +65,16 @@ class LoginFormAuthenticator extends AbstractFormLoginAuthenticator
         }
 
         $user = $this->entityManager->getRepository(User::class)->findOneBy(['username' => $credentials['username']]);
-        if ($user->getActive() == 0){
 
-            throw new CustomUserMessageAuthenticationException('Your account is blocked, or not activate');
-        }
         if (!$user) {
             // fail authentication with a custom error
             throw new CustomUserMessageAuthenticationException('Username could not be found.');
         }
+        if ($user->getActive() == 0){
+
+            throw new CustomUserMessageAuthenticationException('Your account is blocked, or not activate');
+        }
+
 
         return $user;
     }

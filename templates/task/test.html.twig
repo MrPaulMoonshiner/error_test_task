@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 {% block title %}{% trans %}Register{% endtrans %}!{% endblock %}
 {% block body %}
-    {% if error %}
+    {% if error != NULL %}
         <div class="alert alert-danger">{{ error }}</div>
     {% endif %}
     {{ form_start(form) }}

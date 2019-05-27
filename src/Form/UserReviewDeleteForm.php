@@ -17,9 +17,11 @@ class UserReviewDeleteForm extends  AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options) {
         $builder->add('id', HiddenType::class, [
             'data' => $options['delete_id']
-        ])->add('submit', SubmitType::class, [
+        ])
+            ->add('submit', SubmitType::class, [
             'label' => 'Delete'
-        ]);
+        ])
+        ;
     }
 
     public function configureOptions(OptionsResolver $resolver) {
