@@ -45,7 +45,9 @@
 
                             <td>{{ archive.eMail }}</td>
                             <td>{{ archive.userReview }}</td>
+                            {% if archive.brochure %}
                             <td><img src="/images/{{ archive.brochure }}"></td>
+                                {% endif %}
                             <td>{{ archive.pubDate|date('H:i:s y/m/d') }}</td>
                             <td>
                                 <a href="{{ path('arc_edit', {'id' : archive.id}) }}">
